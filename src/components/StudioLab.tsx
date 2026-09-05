@@ -153,17 +153,17 @@ export function AuroraBackgroundDemo() {
               />
             </div>
 
-            {/* Inner Content overlay */}
-            <div className="relative z-10 text-center px-4 max-w-xl">
-              <div className="font-ibm-plex text-sm sm:text-base md:text-lg font-bold text-white mb-2 drop-shadow-md leading-snug sm:whitespace-nowrap">
+            {/* Inner Content overlay with comfortable spacing */}
+            <div className="relative z-10 text-center px-6 max-w-xl">
+              <div className="font-ibm-plex text-sm sm:text-base md:text-lg font-bold text-white mb-3.5 drop-shadow-md leading-snug sm:whitespace-nowrap">
                 “Integrity in action, speed in delivery, and empathy at heart.”
               </div>
-              <div className="font-noto-sc text-xs sm:text-sm font-light text-zinc-300 mb-6 leading-relaxed">
+              <div className="font-noto-sc text-xs sm:text-sm font-light text-zinc-300/90 mb-7 leading-relaxed">
                 我们用诚信写下开头，在高效里雕刻时光，而所有的故事，终究都要归于那份懂得冷暖、不忍让人失望的同理心。
               </div>
               <button
                 onClick={onOpenAuroraIntro}
-                className="font-ibm-plex bg-white text-black hover:bg-zinc-200 text-xs font-semibold px-4 py-2 rounded-full cursor-pointer transition-transform hover:scale-105"
+                className="font-ibm-plex bg-white text-black hover:bg-zinc-100 text-xs sm:text-sm font-semibold px-6 py-2.5 rounded-full cursor-pointer transition-transform hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.2)]"
               >
                 Get lost in
               </button>

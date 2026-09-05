@@ -6,6 +6,7 @@ interface AuroraBackgroundProps extends React.HTMLAttributes<HTMLDivElement> {
   showRadialGradient?: boolean;
   className?: string;
   customAuroraGradient?: string;
+  style?: React.CSSProperties;
 }
 
 export const AuroraBackground = ({
@@ -13,15 +14,17 @@ export const AuroraBackground = ({
   children,
   showRadialGradient = true,
   customAuroraGradient,
+  style,
   ...props
 }: AuroraBackgroundProps) => {
   return (
     <main className="w-full h-full">
       <div
         className={cn(
-          "relative flex flex-col min-h-screen w-full items-center justify-center bg-zinc-950 text-white transition-colors duration-500 overflow-hidden aurora-bg-container",
+          "relative w-full min-h-screen bg-zinc-950 text-white transition-colors duration-500 overflow-hidden aurora-bg-container",
           className
         )}
+        style={style}
         {...props}
       >
         {/* Aceternity Chemical Burn & Aurora Light Engine */}
@@ -62,7 +65,7 @@ export const AuroraBackground = ({
         </div>
 
         {/* Foreground Content */}
-        <div className="relative z-10 w-full flex flex-col items-center justify-center">
+        <div className="relative z-10 w-full">
           {children}
         </div>
       </div>
