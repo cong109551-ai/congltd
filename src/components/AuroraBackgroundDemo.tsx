@@ -51,19 +51,19 @@ export function AuroraBackgroundDemo({ onEnter }: AuroraBackgroundDemoProps) {
           “Integrity in action, speed in delivery, and empathy at heart.”
         </h1>
 
-        {/* 2. 中文长句：苹方优先原生字体栈，400字重饱满清晰，文本平衡换行，恢复原版细腻文案 */}
+        {/* 2. 中文长句：苹方优先原生字体栈，字体放大与英文呼应，保持首句不折行 */}
         <p
           className="font-chinese"
           style={{
             fontFamily:
               '-apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", sans-serif',
-            fontSize: "clamp(0.95rem, 1.18vw, 1.18rem)",
-            color: "#e4e4e7",
-            lineHeight: 1.8,
+            fontSize: "clamp(1.15rem, 1.9vw, 1.7rem)",
+            color: "#f4f4f5",
+            lineHeight: 1.75,
             marginBottom: "40px",
-            maxWidth: "840px",
+            maxWidth: "1020px",
             fontWeight: 400,
-            letterSpacing: "0.03em",
+            letterSpacing: "0.02em",
             WebkitFontSmoothing: "antialiased",
           }}
         >

@@ -53,16 +53,16 @@ export const StudioHero: React.FC = () => {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.22 }}
-          className="p-4 sm:p-5 rounded-lg bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800/90 mb-10 max-w-2xl text-left w-full shadow-xs"
+          className="p-5 sm:p-6 rounded-lg bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800/90 mb-10 max-w-3xl text-left w-full shadow-xs"
         >
-          <div className="flex items-center gap-2 mb-2">
-            <span className="w-2 h-2 rounded-full bg-zinc-400 dark:bg-zinc-700" />
+          <div className="flex items-center gap-2 mb-2.5">
+            <span className="w-2 h-2 rounded-full bg-zinc-400 dark:bg-zinc-600" />
             <span className="font-mono text-[11px] text-zinc-500 uppercase tracking-wider">CREED</span>
           </div>
-          <p className="font-ibm-plex text-sm sm:text-base font-semibold text-zinc-900 dark:text-zinc-200 tracking-tight">
+          <p className="font-ibm-plex text-base sm:text-lg md:text-xl font-semibold text-zinc-900 dark:text-zinc-100 tracking-tight">
             “Integrity in action, speed in delivery, and empathy at heart.”
           </p>
-          <p className="font-chinese text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-2 leading-relaxed">
+          <p className="font-chinese text-sm sm:text-base md:text-[17px] text-zinc-700 dark:text-zinc-300 mt-2.5 leading-relaxed">
             <span className="inline-block whitespace-nowrap">我们用诚信写下开头，在高效里镌刻时光，而所有的故事，</span>
             <br className="hidden sm:inline" />
             <span className="inline-block">终究都要归于那份懂得冷暖、不忍让人失望的同理心。</span>

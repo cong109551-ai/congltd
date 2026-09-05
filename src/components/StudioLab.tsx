@@ -101,11 +101,11 @@ export const StudioLab: React.FC<StudioLabProps> = ({ onOpenAuroraIntro }) => {
             </div>
 
             {/* Inner Content */}
-            <div className="relative z-10 text-center px-6 max-w-xl">
-              <div className="font-ibm-plex text-sm sm:text-base md:text-lg font-bold text-zinc-100 mb-3 drop-shadow-md leading-snug">
+            <div className="relative z-10 text-center px-6 max-w-2xl">
+              <div className="font-ibm-plex text-base sm:text-lg md:text-xl font-bold text-zinc-100 mb-3 drop-shadow-md leading-snug">
                 “Integrity in action, speed in delivery, and empathy at heart.”
               </div>
-              <div className="font-chinese text-xs sm:text-sm text-zinc-300 mb-6 leading-relaxed">
+              <div className="font-chinese text-sm sm:text-base text-zinc-200 mb-6 leading-relaxed">
                 <span className="inline-block whitespace-nowrap">我们用诚信写下开头，在高效里镌刻时光，而所有的故事，</span>
                 <br className="hidden sm:inline" />
                 <span className="inline-block">终究都要归于那份懂得冷暖、不忍让人失望的同理心。</span>
