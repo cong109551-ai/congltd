@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --transparent: transparent;
+}
+
+/* Authentic Aceternity Aurora Background Engine */
+.aurora-bg-container {
+  --white-gradient: repeating-linear-gradient(100deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 7%, transparent 10%, transparent 12%, rgba(255, 255, 255, 1) 16%);
+  --dark-gradient: repeating-linear-gradient(100deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 7%, transparent 10%, transparent 12%, rgba(0, 0, 0, 1) 16%);
+  --aurora: repeating-linear-gradient(100deg, #3b82f6 10%, #a5b4fc 15%, #93c5fd 20%, #ddd6fe 25%, #60a5fa 30%);
+}
+
+/* Primary Mathematical Interference Layer */
+.aurora-layer-base {
+  position: absolute;
+  inset: -20px;
+  background-image: var(--dark-gradient), var(--aurora);
+  background-size: 300% 200%;
+  background-position: 50% 50%, 50% 50%;
+  filter: blur(10px);
+  opacity: 0.65;
+  will-change: background-position, transform;
+  pointer-events: none;
+}
+
+/* Difference blend mode layer creating authentic chemical burn optical interference */
+.aurora-layer-base::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--dark-gradient), var(--aurora);
+  background-size: 200% 100%;
+  mix-blend-mode: difference;
+  animation: aurora-flow 90s linear infinite;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* Shifting keyframe for the repeating linear gradient */
+@keyframes aurora-flow {
+  0% {
+    background-position: 50% 50%, 50% 50%;
+  }
+  50% {
+    background-position: 200% 50%, 200% 50%;
+  }
+  100% {
+    background-position: 350% 50%, 350% 50%;
+  }
+}
+
+/* High-end cinematic anamorphic prism beam (slow, serene celestial float) */
+@keyframes prism-streak-shift {
+  0%, 100% {
+    opacity: 0.7;
+    transform: translate(0, 0) scale(1) rotate(-5deg);
+  }
+  50% {
+    opacity: 0.86;
+    transform: translate(-14px, 10px) scale(1.03) rotate(-3deg);
+  }
+}
+
+.animate-prism-streak {
+  animation: prism-streak-shift 48s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* Typography font stacks */
+.font-ibm-plex {
+  font-family: 'IBM Plex Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.font-noto-sc {
+  font-family: 'Noto Sans SC', 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}

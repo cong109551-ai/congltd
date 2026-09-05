@@ -1,0 +1,6 @@
+{
+  "name": "cong.ltd",
+  "description": "cong.ltd 个人工作室 - “Integrity in action, speed in delivery, and empathy at heart.”（我们用诚信写下开头，在高效里雕刻时光，而所有的故事，终究都要归于那份懂得冷暖、不忍让人失望的同理心）",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
