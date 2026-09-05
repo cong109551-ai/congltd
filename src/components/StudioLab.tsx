@@ -1,137 +1,84 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Sparkles, Sliders, Code, Copy, Check, Play, RefreshCw, Eye } from 'lucide-react';
+import { Sliders, Maximize2, Compass } from 'lucide-react';
 
 interface StudioLabProps {
   onOpenAuroraIntro: () => void;
 }
 
 export const StudioLab: React.FC<StudioLabProps> = ({ onOpenAuroraIntro }) => {
-  const [speed, setSpeed] = useState<number>(90);
-  const [blurAmount, setBlurAmount] = useState<number>(10);
-  const [activePalette, setActivePalette] = useState<'classic' | 'emerald' | 'solar' | 'cyber'>('classic');
+  const [speed, setSpeed] = useState<number>(75);
+  const [blurAmount, setBlurAmount] = useState<number>(12);
+  const [activePalette, setActivePalette] = useState<'obsidian' | 'cold-slate' | 'silver-mist' | 'glacial'>('obsidian');
   const [showMask, setShowMask] = useState<boolean>(true);
-  const [copied, setCopied] = useState<boolean>(false);
 
   const palettes = [
     {
-      id: 'classic',
-      name: 'Chemical Burn (原版极光)',
-      gradient: 'repeating-linear-gradient(100deg,#3b82f6 10%,#a855f7 15%,#60a5fa 20%,#e879f9 25%,#6366f1 30%)',
-      preview: 'from-blue-500 via-purple-500 to-pink-500'
+      id: 'obsidian',
+      name: '深空黑曜 (Deep Obsidian)',
+      gradient: 'repeating-linear-gradient(100deg,#18181b 10%,#27272a 15%,#3f3f46 20%,#09090b 25%,#18181b 30%)',
+      preview: 'from-zinc-950 via-zinc-800 to-zinc-700'
     },
     {
-      id: 'emerald',
-      name: 'Northern Jade (极北翡翠)',
-      gradient: 'repeating-linear-gradient(100deg,#10b981 10%,#06b6d4 15%,#34d399 20%,#3b82f6 25%,#059669 30%)',
-      preview: 'from-emerald-500 via-teal-500 to-cyan-500'
+      id: 'cold-slate',
+      name: '冷钢暗灰 (Cold Slate)',
+      gradient: 'repeating-linear-gradient(100deg,#1e293b 10%,#334155 15%,#475569 20%,#0f172a 25%,#1e293b 30%)',
+      preview: 'from-slate-950 via-slate-800 to-slate-700'
     },
     {
-      id: 'solar',
-      name: 'Solar Flare (日珥耀斑)',
-      gradient: 'repeating-linear-gradient(100deg,#f59e0b 10%,#ef4444 15%,#fbbf24 20%,#f97316 25%,#ec4899 30%)',
-      preview: 'from-amber-500 via-orange-500 to-red-500'
+      id: 'silver-mist',
+      name: '银灰薄雾 (Silver Mist)',
+      gradient: 'repeating-linear-gradient(100deg,#27272a 10%,#52525b 15%,#71717a 20%,#3f3f46 25%,#18181b 30%)',
+      preview: 'from-zinc-900 via-zinc-600 to-zinc-400'
     },
     {
-      id: 'cyber',
-      name: 'Cyber Neo (赛博霓虹)',
-      gradient: 'repeating-linear-gradient(100deg,#06b6d4 10%,#ec4899 15%,#8b5cf6 20%,#3b82f6 25%,#10b981 30%)',
-      preview: 'from-cyan-400 via-fuchsia-500 to-indigo-500'
+      id: 'glacial',
+      name: '冷冽冰川 (Glacial Zinc)',
+      gradient: 'repeating-linear-gradient(100deg,#0f172a 10%,#1e293b 15%,#27272a 20%,#334155 25%,#09090b 30%)',
+      preview: 'from-zinc-950 via-slate-900 to-zinc-700'
     },
   ];
 
   const currentPalette = palettes.find((p) => p.id === activePalette) || palettes[0];
 
-  const codeSnippet = `"use client";
-
-import { motion } from "motion/react";
-import React from "react";
-import { AuroraBackground } from "../ui/aurora-background";
-
-export function AuroraBackgroundDemo() {
   return (
-    <AuroraBackground showRadialGradient={${showMask}}>
-      <motion.div
-        initial={{ opacity: 0.0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{
-          delay: 0.3,
-          duration: 0.8,
-          ease: "easeInOut",
-        }}
-        className="relative flex flex-col gap-4 items-center justify-center px-4">
-        <div className="text-2xl md:text-6xl font-bold dark:text-white text-center">
-          “Integrity in action, speed in delivery, and empathy at heart.”
-        </div>
-        <div
-          className="font-light text-base md:text-2xl dark:text-neutral-200 py-3 text-center">
-          行动秉持诚信，交付追求高效，核心源于同理心。
-        </div>
-        <button
-          className="bg-black dark:bg-white rounded-full w-fit text-white dark:text-black px-4 py-2">
-          Debug now
-        </button>
-      </motion.div>
-    </AuroraBackground>
-  );
-}`;
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(codeSnippet);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
-  return (
-    <section id="lab" className="py-24 px-6 relative max-w-7xl mx-auto border-t border-zinc-900">
+    <section id="lab" className="py-24 px-6 relative max-w-7xl mx-auto border-t border-zinc-200 dark:border-zinc-800/80 transition-colors duration-200">
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
         <div>
-          <div className="flex items-center gap-2 text-cyan-400 font-mono text-xs tracking-wider uppercase mb-2">
-            <Sparkles className="w-4 h-4" />
-            <span>INTERACTIVE STUDIO LAB</span>
+          <div className="text-zinc-500 font-mono text-xs tracking-wider uppercase mb-2">
+            VISUAL EXPLORATIONS & ATMOSPHERE
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-2">
-            极光实验室 · 动效着色器工坊
+          <h2 className="text-3xl sm:text-4xl font-bold text-zinc-900 dark:text-zinc-100 tracking-tight mb-2">
+            动态视觉与氛围探索
           </h2>
-          <p className="text-sm text-zinc-400">
-            实时微调 Aurora 着色器参数与运动频率，感受 CSS 重复线性渐变与混合模式的数学魅力。
+          <p className="font-chinese text-sm text-zinc-600 dark:text-zinc-400 max-w-xl">
+            探索冷调光影、流体与数学网格在数字界面中的交汇。调整下方光域参数，感受冷峻而细腻的动效质感。
           </p>
         </div>
 
         <button
           onClick={onOpenAuroraIntro}
-          className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 hover:border-cyan-400 text-cyan-300 text-xs font-mono transition-all cursor-pointer shadow-lg hover:shadow-cyan-500/20"
+          className="flex items-center gap-2 px-4 py-2 rounded-md bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-zinc-100 text-xs font-mono transition-colors cursor-pointer shadow-xs active:scale-98"
         >
-          <Eye className="w-4 h-4" />
-          <span>全屏体验原版 Aurora 欢迎页</span>
+          <Maximize2 className="w-3.5 h-3.5" />
+          <span>全屏极光原屏</span>
         </button>
       </div>
 
-      {/* Interactive Sandbox Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        {/* Left: Live Visual Preview Canvas */}
-        <div className="lg:col-span-7 rounded-2xl bg-zinc-950 border border-zinc-800 p-6 overflow-hidden relative shadow-2xl">
-          <div className="flex items-center justify-between mb-4 pb-3 border-b border-zinc-800/80">
-            <div className="flex items-center gap-2">
-              <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block" />
-              <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block" />
-              <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block" />
-              <span className="text-xs font-mono text-zinc-400 ml-2">live-aurora-viewport.glsl</span>
-            </div>
-            <span className="text-[11px] font-mono text-zinc-400">GPU Accelerated</span>
-          </div>
-
-          {/* Interactive Aurora Viewport */}
-          <div className="relative h-[360px] sm:h-[420px] rounded-xl overflow-hidden flex flex-col items-center justify-center bg-zinc-950 border border-zinc-800/50">
-            {/* Live Aurora Effect Layer */}
+      {/* Sandbox Layout */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        {/* Left: Atmospheric Viewport */}
+        <div className="lg:col-span-8 rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 p-3 sm:p-5 overflow-hidden relative shadow-xs">
+          <div className="relative h-[380px] sm:h-[440px] rounded-lg overflow-hidden flex flex-col items-center justify-center bg-black border border-zinc-800/60">
+            {/* Live Aurora Effect Layer - Cold Monochromatic Specular */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              {/* Cinematic Anamorphic Optical Prism Beam */}
+              {/* Cold Silver Prism Beam */}
               <div
-                className="absolute -top-[20%] -right-[15%] w-[500px] h-[600px] pointer-events-none animate-prism-streak mix-blend-screen opacity-75 will-change-transform"
+                className="absolute -top-[20%] -right-[15%] w-[500px] h-[600px] pointer-events-none animate-prism-streak mix-blend-screen opacity-40 will-change-transform"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(29, 78, 216, 0.45) 15%, rgba(6, 182, 212, 0.35) 30%, rgba(245, 158, 11, 0.25) 45%, rgba(255, 255, 255, 0.4) 52%, rgba(221, 214, 254, 0.35) 60%, rgba(99, 102, 241, 0.25) 75%, transparent 90%)",
-                  filter: "blur(45px)",
+                    "linear-gradient(135deg, rgba(255, 255, 255, 0.15) 15%, rgba(148, 163, 184, 0.2) 35%, rgba(255, 255, 255, 0.25) 50%, rgba(71, 85, 105, 0.15) 70%, transparent 90%)",
+                  filter: "blur(50px)",
                   transform: "rotate(-12deg)",
                 }}
               />
@@ -153,17 +100,20 @@ export function AuroraBackgroundDemo() {
               />
             </div>
 
-            {/* Inner Content overlay with comfortable spacing */}
+            {/* Inner Content */}
             <div className="relative z-10 text-center px-6 max-w-xl">
-              <div className="font-ibm-plex text-sm sm:text-base md:text-lg font-bold text-white mb-3.5 drop-shadow-md leading-snug sm:whitespace-nowrap">
+              <div className="font-ibm-plex text-sm sm:text-base md:text-lg font-bold text-zinc-100 mb-3 drop-shadow-md leading-snug">
                 “Integrity in action, speed in delivery, and empathy at heart.”
               </div>
-              <div className="font-noto-sc text-xs sm:text-sm font-light text-zinc-300/90 mb-7 leading-relaxed">
-                我们用诚信写下开头，在高效里雕刻时光，而所有的故事，终究都要归于那份懂得冷暖、不忍让人失望的同理心。
+              <div className="font-chinese text-xs sm:text-sm text-zinc-300 mb-6 leading-relaxed">
+                <span className="inline-block whitespace-nowrap">我们用诚信写下开头，在高效里镌刻时光，而所有的故事，</span>
+                <br className="hidden sm:inline" />
+                <span className="inline-block">终究都要归于那份懂得冷暖、不忍让人失望的同理心。</span>
               </div>
+
               <button
                 onClick={onOpenAuroraIntro}
-                className="font-ibm-plex bg-white text-black hover:bg-zinc-100 text-xs sm:text-sm font-semibold px-6 py-2.5 rounded-full cursor-pointer transition-transform hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.2)]"
+                className="font-ibm-plex bg-zinc-100 text-zinc-950 hover:bg-zinc-200 text-xs sm:text-sm font-medium px-4 py-2 rounded-md cursor-pointer transition-colors shadow-xs"
               >
                 Get lost in
               </button>
@@ -171,42 +121,41 @@ export function AuroraBackgroundDemo() {
           </div>
         </div>
 
-        {/* Right: Controls & Code Inspector */}
-        <div className="lg:col-span-5 space-y-6">
-          {/* Controls Card */}
-          <div className="p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800">
-            <div className="flex items-center gap-2 text-sm font-semibold text-white mb-4">
-              <Sliders className="w-4 h-4 text-cyan-400" />
-              <span>动态调优控制台</span>
+        {/* Right: Fine-tuning controls */}
+        <div className="lg:col-span-4 space-y-4">
+          <div className="p-5 rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 shadow-xs">
+            <div className="flex items-center gap-2 text-sm font-medium text-zinc-800 dark:text-zinc-200 mb-4">
+              <Sliders className="w-3.5 h-3.5 text-zinc-500 dark:text-zinc-400" />
+              <span>氛围色系微调</span>
             </div>
 
-            {/* Palettes selection */}
+            {/* Spectrum buttons */}
             <div className="space-y-2 mb-6">
-              <label className="text-xs font-mono text-zinc-400">色彩光谱方案 (Color Spectrum)</label>
-              <div className="grid grid-cols-2 gap-2">
+              <label className="text-xs font-mono text-zinc-500 dark:text-zinc-400">预设色系 (Cold Spectrum)</label>
+              <div className="grid grid-cols-1 gap-1.5">
                 {palettes.map((p) => (
                   <button
                     key={p.id}
                     onClick={() => setActivePalette(p.id as any)}
-                    className={`p-2.5 rounded-xl text-left border text-xs font-mono transition-all flex items-center gap-2 cursor-pointer ${
+                    className={`p-2.5 rounded-md text-left border text-xs font-mono transition-colors flex items-center justify-between cursor-pointer ${
                       activePalette === p.id
-                        ? 'bg-zinc-800 border-cyan-500 text-white'
-                        : 'bg-zinc-950 border-zinc-800 text-zinc-400 hover:text-zinc-200'
+                        ? 'bg-zinc-100 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-600 text-zinc-950 dark:text-zinc-100'
+                        : 'bg-zinc-50 dark:bg-zinc-900/60 border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-900'
                     }`}
                   >
-                    <span className={`w-3 h-3 rounded-full bg-gradient-to-r ${p.preview} shrink-0`} />
-                    <span className="truncate">{p.name}</span>
+                    <span>{p.name}</span>
+                    <span className={`w-3 h-3 rounded-full bg-gradient-to-r ${p.preview} shrink-0 border border-zinc-300 dark:border-zinc-700`} />
                   </button>
                 ))}
               </div>
             </div>
 
-            {/* Sliders */}
+            {/* Sliders in shadcn style */}
             <div className="space-y-4">
               <div>
                 <div className="flex justify-between text-xs font-mono mb-1.5">
-                  <span className="text-zinc-400">循环流动周期 (Cycle Duration)</span>
-                  <span className="text-cyan-400">{speed}s</span>
+                  <span className="text-zinc-600 dark:text-zinc-400">流动周期 (Cycle)</span>
+                  <span className="text-zinc-900 dark:text-zinc-200">{speed}s</span>
                 </div>
                 <input
                   type="range"
@@ -215,31 +164,31 @@ export function AuroraBackgroundDemo() {
                   step={5}
                   value={speed}
                   onChange={(e) => setSpeed(Number(e.target.value))}
-                  className="w-full h-1.5 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-cyan-400"
+                  className="w-full h-1.5 bg-zinc-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-zinc-700 dark:accent-zinc-200"
                 />
               </div>
 
               <div>
                 <div className="flex justify-between text-xs font-mono mb-1.5">
-                  <span className="text-zinc-400">高斯模糊半径 (Gaussian Blur)</span>
-                  <span className="text-cyan-400">{blurAmount}px</span>
+                  <span className="text-zinc-600 dark:text-zinc-400">柔焦光晕 (Blur)</span>
+                  <span className="text-zinc-900 dark:text-zinc-200">{blurAmount}px</span>
                 </div>
                 <input
                   type="range"
                   min={2}
-                  max={30}
+                  max={25}
                   value={blurAmount}
                   onChange={(e) => setBlurAmount(Number(e.target.value))}
-                  className="w-full h-1.5 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-cyan-400"
+                  className="w-full h-1.5 bg-zinc-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-zinc-700 dark:accent-zinc-200"
                 />
               </div>
 
-              <div className="flex items-center justify-between pt-3 border-t border-zinc-800/80">
-                <span className="text-xs font-mono text-zinc-300">径向渐变遮罩 (Radial Gradient Mask)</span>
+              <div className="flex items-center justify-between pt-3 border-t border-zinc-200 dark:border-zinc-800/80">
+                <span className="text-xs font-mono text-zinc-700 dark:text-zinc-300">暗角遮罩 (Vignette)</span>
                 <button
                   onClick={() => setShowMask(!showMask)}
-                  className={`px-3 py-1 rounded-full text-xs font-mono transition-colors cursor-pointer ${
-                    showMask ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40' : 'bg-zinc-800 text-zinc-500 border border-zinc-700'
+                  className={`px-2.5 py-1 rounded-md text-xs font-mono transition-colors cursor-pointer ${
+                    showMask ? 'bg-zinc-200 dark:bg-zinc-800 text-zinc-950 dark:text-zinc-100 border border-zinc-300 dark:border-zinc-700' : 'bg-zinc-100 dark:bg-zinc-900 text-zinc-500 border border-zinc-200 dark:border-zinc-800'
                   }`}
                 >
                   {showMask ? '已开启' : '已关闭'}
@@ -248,33 +197,15 @@ export function AuroraBackgroundDemo() {
             </div>
           </div>
 
-          {/* Code Viewer Card */}
-          <div className="p-6 rounded-2xl bg-zinc-900/60 border border-zinc-800">
-            <div className="flex items-center justify-between mb-3">
-              <div className="flex items-center gap-2 text-sm font-semibold text-white">
-                <Code className="w-4 h-4 text-purple-400" />
-                <span>代码片段</span>
-              </div>
-              <button
-                onClick={handleCopy}
-                className="flex items-center gap-1.5 text-xs font-mono text-zinc-400 hover:text-white px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 transition-colors cursor-pointer"
-              >
-                {copied ? (
-                  <>
-                    <Check className="w-3.5 h-3.5 text-emerald-400" />
-                    <span className="text-emerald-400">已复制</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-3.5 h-3.5" />
-                    <span>复制代码</span>
-                  </>
-                )}
-              </button>
+          {/* Philosophy Note in shadcn card style */}
+          <div className="p-5 rounded-xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 shadow-xs">
+            <div className="flex items-center gap-2 text-xs font-mono text-zinc-700 dark:text-zinc-300 mb-2">
+              <Compass className="w-3.5 h-3.5 text-zinc-500 dark:text-zinc-400" />
+              <span>ENGINEERING NOTE</span>
             </div>
-            <pre className="p-3.5 rounded-xl bg-zinc-950 text-xs font-mono text-zinc-300 overflow-x-auto max-h-48 border border-zinc-800/60">
-              <code>{codeSnippet}</code>
-            </pre>
+            <p className="font-chinese text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              克制冷峻的界面并不意味着缺乏质感。通过将重复线性渐变与亚像素微位移结合，无需庞大的 3D 运行时即可呈现具有深度感的光影空间。
+            </p>
           </div>
         </div>
       </div>

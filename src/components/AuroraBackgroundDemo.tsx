@@ -57,18 +57,19 @@ export function AuroraBackgroundDemo({ onEnter }: AuroraBackgroundDemoProps) {
           style={{
             fontFamily:
               '-apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", sans-serif',
-            fontSize: "clamp(1rem, 1.2vw, 1.2rem)",
+            fontSize: "clamp(0.95rem, 1.18vw, 1.18rem)",
             color: "#e4e4e7",
             lineHeight: 1.8,
             marginBottom: "40px",
-            maxWidth: "780px",
+            maxWidth: "840px",
             fontWeight: 400,
             letterSpacing: "0.03em",
-            textWrap: "balance",
             WebkitFontSmoothing: "antialiased",
           }}
         >
-          我们用诚信写下开头，在高效里雕刻时光，而所有的故事，终究都要归于那份懂得冷暖、不忍让人失望的同理心。
+          <span className="inline-block whitespace-nowrap">我们用诚信写下开头，在高效里镌刻时光，而所有的故事，</span>
+          <br className="hidden sm:inline" />
+          <span className="inline-block">终究都要归于那份懂得冷暖、不忍让人失望的同理心。</span>
         </p>
 
         <div style={{ marginBottom: "24px" }}>

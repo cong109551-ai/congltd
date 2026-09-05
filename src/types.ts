@@ -2,7 +2,7 @@ export interface Project {
   id: string;
   title: string;
   subtitle: string;
-  category: 'Full-Stack' | 'Creative Dev' | 'AI Systems' | 'UI/UX Design';
+  category: 'Full-Stack' | 'Creative Dev' | 'Product Craft' | 'UI/UX Design';
   year: string;
   description: string;
   challenge: string;

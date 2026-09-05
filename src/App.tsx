@@ -13,15 +13,25 @@ import { StudioFooter } from './components/StudioFooter';
 export default function App() {
   // Initial screen shows user's provided Aurora code interface as requested
   const [viewMode, setViewMode] = useState<'intro' | 'studio'>('intro');
-  const [isDark, setIsDark] = useState<boolean>(true);
+  const [isDark, setIsDark] = useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('congltd_theme');
+      if (saved !== null) {
+        return saved === 'dark';
+      }
+    }
+    return true;
+  });
 
   // Sync theme with html root element
   useEffect(() => {
     const root = document.documentElement;
     if (isDark) {
       root.classList.add('dark');
+      localStorage.setItem('congltd_theme', 'dark');
     } else {
       root.classList.remove('dark');
+      localStorage.setItem('congltd_theme', 'light');
     }
   }, [isDark]);
 
@@ -60,7 +70,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div className={`min-h-screen ${isDark ? 'dark' : ''} bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 selection:bg-zinc-200 dark:selection:bg-zinc-700 selection:text-zinc-900 dark:selection:text-white transition-colors duration-200`}>
       <AnimatePresence mode="wait">
         {viewMode === 'intro' ? (
           <motion.div

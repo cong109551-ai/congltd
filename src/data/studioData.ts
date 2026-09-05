@@ -19,8 +19,8 @@ export const STUDIO_PROJECTS: Project[] = [
     liveUrl: 'https://novaos.cong.ltd',
     githubUrl: 'https://github.com/usmcong/novaos',
     role: '独力架构与全栈实现',
-    color: '#38bdf8',
-    previewGradient: 'from-sky-950/60 via-cyan-900/30 to-zinc-950'
+    color: '#a1a1aa',
+    previewGradient: 'from-zinc-900 via-zinc-950 to-black'
   },
   {
     id: 'aetheria',
@@ -34,14 +34,14 @@ export const STUDIO_PROJECTS: Project[] = [
     highlights: [
       '严格 8pt 网格与数学流体比例',
       '内置微震动与自然弹簧物理衰减',
-      '支持深色/极光/高对比无障碍模式'
+      '支持深色/冷灰/高对比无障碍模式'
     ],
     tags: ['Design System', 'Tailwind CSS', 'Framer Motion', 'Figma Tokens'],
     liveUrl: 'https://aetheria.cong.ltd',
     githubUrl: 'https://github.com/usmcong/aetheria',
     role: '设计总监 & 创意工程研发',
-    color: '#a855f7',
-    previewGradient: 'from-purple-950/60 via-fuchsia-900/30 to-zinc-950'
+    color: '#d4d4d8',
+    previewGradient: 'from-zinc-900/90 via-[#121215] to-black'
   },
   {
     id: 'hyperion',
@@ -61,29 +61,29 @@ export const STUDIO_PROJECTS: Project[] = [
     liveUrl: 'https://hyperion.cong.ltd',
     githubUrl: 'https://github.com/usmcong/hyperion',
     role: '系统架构师 & 前端主程',
-    color: '#10b981',
-    previewGradient: 'from-emerald-950/60 via-teal-900/30 to-zinc-950'
+    color: '#71717a',
+    previewGradient: 'from-[#1a1a1e] via-[#0d0d10] to-black'
   },
   {
-    id: 'luminal',
-    title: 'Luminal AI Agent Studio',
-    subtitle: '多模态语义图谱探索与智能代理工作流系统',
-    category: 'AI Systems',
+    id: 'chronicle',
+    title: 'Chronicle Reading Engine',
+    subtitle: '专注于深度长文排版美学与纯净交互的数字出版引擎',
+    category: 'Product Craft',
     year: '2026',
-    description: '连接人类直觉与大模型决策中枢的生成式知识平台。支持多源异构文档智能解析、实体关系拓扑自动生成与自主工具调用链路编排。',
-    challenge: '解决复杂多步 Agent 推理过程的黑盒状态，让用户能够直观干预与回溯分支。',
-    solution: '设计了类似力导向图的思考链路树（Tree of Thoughts Visualizer），支持断点调试与提示词微调。',
+    description: '为独立写作者与数字刊物定制的无干扰阅读器与排版工具。严格依据活字排版韵律、自适应段落网格与离线字体子集化渲染。',
+    challenge: '在多设备和不同语言混排时维持优雅的基线对齐与极致流畅的翻页物理动效。',
+    solution: '自主构建排版网格度量系统，配合基于 CSS Houdini 与 WebGL 的纸质翻折质感，带来温润自然的数字阅读体验。',
     highlights: [
-      '直观的 Agent 思考链路拓扑图',
-      '混合检索与精准向量定位',
-      '一键部署工具链与 API 钩子'
+      '经典版式与黄金比例行距系统',
+      '零网络依赖的离线离壳存储',
+      '沉浸式纸张色彩与环境光感自适应'
     ],
-    tags: ['Gemini 2.5', 'Vector DB', 'Next.js', 'FastAPI', 'D3.js'],
-    liveUrl: 'https://luminal.cong.ltd',
-    githubUrl: 'https://github.com/usmcong/luminal-ai',
-    role: '全栈 AI 工程师',
-    color: '#f59e0b',
-    previewGradient: 'from-amber-950/60 via-orange-900/30 to-zinc-950'
+    tags: ['TypeScript', 'Typography Engine', 'CSS Houdini', 'Tailwind', 'Motion'],
+    liveUrl: 'https://chronicle.cong.ltd',
+    githubUrl: 'https://github.com/usmcong/chronicle',
+    role: '独立设计师 & 开发者',
+    color: '#e4e4e7',
+    previewGradient: 'from-zinc-900 via-zinc-950 to-black'
   }
 ];
 
@@ -91,7 +91,7 @@ export const STUDIO_SERVICES: Service[] = [
   {
     id: 's1',
     number: '01',
-    title: '全栈现代架构与应用研发',
+    title: '现代 Web 与全栈架构工程',
     englishTitle: 'Full-Stack Web & App Engineering',
     description: '从系统顶层架构到微交互细节的端到端实现。专注于 React 19、TypeScript、Node.js 与分布式云原生应用，追求极致代码优雅与卓越性能。',
     deliverables: ['高并发 Web 应用程序', '多端适配响应式系统', '高性能 RESTful / GraphQL API', '自动化测试与 CI/CD 管道'],
@@ -103,29 +103,29 @@ export const STUDIO_SERVICES: Service[] = [
     number: '02',
     title: '创意开发与沉浸式动态交互',
     englishTitle: 'Creative Development & Motion',
-    description: '拒绝平庸的静态界面，通过数学韵律、物理动效与 Shader 着色器赋予网页灵魂。打造令人过目难忘的品牌首屏与微交互体验。',
-    deliverables: ['极光/流光/粒子等定制动效', 'WebGL 3D 展厅与空间交互', '丝滑滚轮驱动叙事', '触觉与微交互动画'],
-    techStack: ['Motion (Framer)', 'Three.js / WebGL', 'Canvas API', 'GLSL Shaders', 'SVG Animations'],
+    description: '拒绝平庸的静态界面，通过数学韵律、物理动效与着色器赋予网页灵魂。打造令人过目难忘的品牌视觉与触觉微交互体验。',
+    deliverables: ['定制级流光与着色器动效', 'WebGL 3D 展厅与空间交互', '丝滑滚轮驱动叙事', '触觉反馈与微交互动画'],
+    techStack: ['Motion', 'Three.js / WebGL', 'Canvas API', 'GLSL Shaders', 'SVG Animations'],
     icon: 'Sparkles'
   },
   {
     id: 's3',
     number: '03',
-    title: '独立产品孵化与全球化工程',
-    englishTitle: 'Indie Product & Global SaaS',
+    title: '独立数字产品孵化与出海',
+    englishTitle: 'Indie Product & Global Craft',
     description: '助力创始人从 0 到 1 将产品想法雕琢为具备商业变现能力的全球化数字产品。包含用户体验闭环、国际化支付集成与转化率优化。',
-    deliverables: ['MVP 敏捷研发与快速交付', 'Stripe / LemonSqueezy 支付流', '多语言国际化 (i18n) 架构', 'SEO 与网页核心性能指标 (Core Web Vitals) 优化'],
+    deliverables: ['MVP 敏捷研发与快速交付', 'Stripe / 全球支付流打通', '多语言国际化 (i18n) 架构', 'SEO 与网页核心性能指标优化'],
     techStack: ['SaaS Stacks', 'Stripe', 'Supabase / Firebase', 'Vercel', 'PostHog'],
     icon: 'Rocket'
   },
   {
     id: 's4',
     number: '04',
-    title: 'AI 赋能系统与智能代理方案',
-    englishTitle: 'AI Integration & Agent Workflows',
-    description: '将现代生成式 AI (Gemini / Claude / DeepSeek) 的能力落地到具体业务场景，打造具备自主感知、工具调用与多步推理的实用生产力工具。',
-    deliverables: ['智能问答与知识库 (RAG)', '多模态图像/语音交互接口', 'Function Calling 业务自动化', '提示词工程与模型微调'],
-    techStack: ['Google GenAI SDK', 'LangChain', 'Vector Search', 'Python / TS API'],
+    title: '系统性能重构与设计工程规范',
+    englishTitle: 'System Optimization & Design Systems',
+    description: '为复杂业务提供性能诊断、渲染瓶颈疏通与设计系统搭建。统一工程与设计的语言，让团队在扩展期仍能保持极致的敏捷与美感。',
+    deliverables: ['首屏加载与关键渲染路径优化', '多端组件库与 Figma Tokens 对齐', '代码可维护性与重构治理', '工程质量与自动化审查规范'],
+    techStack: ['Design Systems', 'Performance Profiling', 'Webpack / Vite Tuning', 'Architecture Audit'],
     icon: 'Cpu'
   }
 ];
